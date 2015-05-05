@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@using MagazinesDemo.AppWithoutSPA
+@model ICollection<MagazinesDemo.AppWithoutSPA.ViewModels.MagazineViewModel>
+
+@{
+    var lastYear = Model.Max(m => m.Year);
+}
+
+
+<h2>Magazines</h2>
+<br />
+<ul class="nav nav-pills">
+    
+    <li role="presentation"><a href="@Url.RouteUrl(RouteConfig.MagazinesByYearRoute, new {year = 2006})">2006</a></li>
+    <li role="presentation"><a href="@Url.RouteUrl(RouteConfig.MagazinesByYearRoute, new {year = 2007})">2007</a></li>
+    <li role="presentation"><a href="@Url.RouteUrl(RouteConfig.MagazinesByYearRoute, new {year = 2008})">2008</a></li>
+    <li role="presentation"><a href="@Url.RouteUrl(RouteConfig.MagazinesByYearRoute, new {year = 2009})">2009</a></li>
+    <li role="presentation"><a href="@Url.RouteUrl(RouteConfig.MagazinesByYearRoute, new {year = 2010})">2010</a></li>
+    <li role="presentation"><a href="@Url.RouteUrl(RouteConfig.MagazinesByYearRoute, new {year = 2011})">2011</a></li>
+    <li role="presentation"><a href="@Url.RouteUrl(RouteConfig.MagazinesByYearRoute, new {year = 2012})">2012</a></li>
+    <li role="presentation"><a href="@Url.RouteUrl(RouteConfig.MagazinesByYearRoute, new {year = 2013})">2013</a></li>
+    <li role="presentation"><a href="@Url.RouteUrl(RouteConfig.MagazinesByYearRoute, new {year = 2014})">2014</a></li>
+    <li role="presentation"><a href="@Url.RouteUrl(RouteConfig.MagazinesByYearRoute, new {year = 2015})">2015</a></li>
+</ul>
+<br />
+@Html.ActionLink("add new magazine", "Create", "Magazine",null, new { @class = "btn btn-primary" })
+<br />
+<br/>
+
+@{
+    Html.RenderPartial("MagazineList", Model);
+}

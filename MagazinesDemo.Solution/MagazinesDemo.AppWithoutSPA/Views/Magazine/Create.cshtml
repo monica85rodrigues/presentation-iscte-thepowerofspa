@@ -1,0 +1,40 @@
+﻿@model MagazinesDemo.AppWithoutSPA.ViewModels.MagazineViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="color: red;">Create magazine</h2>
+<br/>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+   
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input id="Title" type="text" name="Title" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Year">Year</label>
+        <input id="Year" type="text" name="Year" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Link">Link</label>
+        <input id="Link" type="text" name="Link" class="form-control" />
+    </div>
+
+
+    <input type="submit" value="Save" class="btn btn-success" />
+
+}
+
+<br />
+@Html.ActionLink("Back to List", "Index")
+
+

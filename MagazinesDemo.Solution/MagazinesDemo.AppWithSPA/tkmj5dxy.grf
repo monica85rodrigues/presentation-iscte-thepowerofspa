@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GirlsGeekDemo</title>
+
+    <link rel="stylesheet" type="text/css" href="Content/styles/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="Content/styles/Site.css" />
+
+    <script type="text/javascript" src="Content/Scripts/external/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="Content/Scripts/external/bootstrap.js"></script>
+    <script type="text/javascript" src="Content/Scripts/external/knockout-2.3.0.js"></script>
+
+    <script type="text/javascript" src="Content/Scripts/app/app.js"></script>
+    <script type="text/javascript" src="Content/Scripts/app/app.service.js"></script>
+    <script type="text/javascript" src="Content/Scripts/app/app.binding.handlers.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">GirlsGeekDemo With SPA</a>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        <!--
+            Magazine list
+            --------------
+        -->
+
+        <div>
+            <h2 style="color: red">Magazines</h2>
+            <br />
+            <ul class="nav nav-pills">
+                <li role="presentation"><a href="#" data-bind="click: function () { return getMagazinesByYear(2006); }">2006</a></li>
+                <li role="presentation"><a href="#" data-bind="click: function () { return getMagazinesByYear(2007); }">2007</a></li>
+                <li role="presentation"><a href="#" data-bind="click: function () { return getMagazinesByYear(2008); }">2008</a></li>
+                <li role="presentation"><a href="#" data-bind="click: function () { return getMagazinesByYear(2009); }">2009</a></li>
+                <li role="presentation"><a href="#" data-bind="click: function () { return getMagazinesByYear(2010); }">2010</a></li>
+                <li role="presentation"><a href="#" data-bind="click: function () { return getMagazinesByYear(2011); }">2011</a></li>
+                <li role="presentation"><a href="#" data-bind="click: function () { return getMagazinesByYear(2012); }">2012</a></li>
+                <li role="presentation"><a href="#" data-bind="click: function () { return getMagazinesByYear(2013); }">2013</a></li>
+                <li role="presentation"><a href="#" data-bind="click: function () { return getMagazinesByYear(2014); }">2014</a></li>
+                <li role="presentation"><a href="#" data-bind="click: function () { return getMagazinesByYear(2015); }">2015</a></li>
+            </ul>
+            <br />
+            <a href="#" class="btn btn-primary" data-bind="click: addNewMagazine">add new magazine</a>
+            <br/>
+
+            <!-- create magazine -->
+            <form id="magazineForm" data-bind="with: magazine, fadeVisible: addMode">
+                <div class="form-group">
+                    <label for="Title">Title</label>
+                    <input id="Title" type="text" data-bind="value: Title" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Year">Year</label>
+                    <input id="Year" type="text" data-bind="value: Year" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Link">Link</label>
+                    <input id="Link" type="text" data-bind="value: Link" class="form-control" />
+                </div>
+                <div class="form-inline">
+                    <input type="button" data-bind="click: $parent.addMagazine" value="Save" class="btn btn-sm btn-success" />
+                    <input type="button" data-bind="click: $parent.cancel" value="Cancel" class="btn btn-sm btn-link" />
+                </div>
+            </form>
+
+            <table class="table table-hover table-striped table-condensed" style="width: 54%">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: magazines">
+                    <tr>
+                        <td data-bind="text: Title"></td>
+                        <td data-bind="text: Year"></td>
+                        <td><a data-bind="attr: { href: Link }" target="_blank">Click here</a> for more details</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+     
+    </div>
+
+    <script>
+
+        $(function () {
+
+            var viewmodel = new window.app.viewModel();
+            viewmodel.init();
+
+        });
+
+    </script>
+
+</body>
+</html>

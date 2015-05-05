@@ -1,0 +1,42 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MagazinesDemo</title>
+    @Styles.Render("~/Content/styles")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Magazines Backoffice", "Index", "Magazines", null, new { @class = "navbar-brand" })
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index", "Magazines")">Magazines</a></li>
+                    <li><a href="@Url.Action("Index", "Authors")">Authors</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <br />
+        <div class="panel panel-info">
+            <div class="panel-heading">Description:</div>
+            <div class="panel-body">Backoffice - Web application with Mini SPAs Sample</div>
+        </div>
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/scripts/external")
+    @Scripts.Render("~/bundles/scripts/app")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

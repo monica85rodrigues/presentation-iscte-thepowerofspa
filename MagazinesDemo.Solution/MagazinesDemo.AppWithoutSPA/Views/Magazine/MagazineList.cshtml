@@ -1,0 +1,23 @@
+﻿@model ICollection<MagazinesDemo.AppWithoutSPA.ViewModels.MagazineViewModel>
+
+
+<table class="table table-hover table-striped table-condensed" style="width: 54%">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Title</td>
+                <td>@m.Year</td>
+                <td><a href="@m.Link" target="_blank">Click here</a> for more details</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
