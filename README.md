@@ -3,6 +3,8 @@
 
 ### This demo presents:
 
-1) SPAs sample - for manage distribution products
+1) SPAs sample - for view magazines ("Revista A Programar")
 
-2) Mini SPA sample - backoffice for manage products and categories
+2) Mini SPA sample - backoffice for manage magazines and authors
+
+3) No SPA - for view magazines ("Revista A Programar")
